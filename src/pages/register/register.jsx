@@ -41,14 +41,13 @@ const Register = () => {
     }
 
     try {
-      const response = await fetch(
-        "http://localhost:8000/api/auth/register.php",
-        {
-          method: "POST",
-          body: formDataToSend,
-          headers: { Accept: "application/json" },
-        }
-      );
+      const response = await fetch("http://localhost:8000/api/auth/register.php", {
+        method: "POST",
+        body: formDataToSend,
+        headers: { Accept: "application/json" },
+        credentials: "include", // Нужно для передачи cookies
+      });
+  
 
       const data = await response.json();
 
